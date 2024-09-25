@@ -140,3 +140,7 @@ alias cd='my_cd'
 
 
 alias sway="sway --unsupported-gpu"
+
+
+
+#test for symlink
