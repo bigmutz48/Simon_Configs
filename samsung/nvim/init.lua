@@ -42,7 +42,7 @@ require('packer').startup(function()
     run = ':TSUpdate',
     config = function()
       require'nvim-treesitter.configs'.setup {
-        ensure_installed = { "rust", "c", "cpp", "cuda" }, -- Added languages for syntax highlighting
+        ensure_installed = { "rust", "c", "cpp", "cuda", "python" }, -- Added languages for syntax highlighting
         highlight = {
           enable = true,              -- false will disable the whole extension
           additional_vim_regex_highlighting = false,
