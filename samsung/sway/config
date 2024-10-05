@@ -146,7 +146,7 @@ output * bg ~/Downloads/wp3787981-hr-giger-wallpapers.jpg fill
     bindsym $mod+v splitv
 
     # Switch the current container between different layout styles
-    bindsym $mod+s layout stacking
+    #bindsym $mod+s layout stacking
     bindsym $mod+w layout tabbed
     bindsym $mod+e layout toggle split
 
@@ -228,10 +228,15 @@ include /etc/sway/config.d/*
 bindsym $mod+c exec brave-browser --new-window "https://chatgpt.com"
 bindsym $mod+b exec brave-browser --new-window 
 
+#open google calendar
+bindsym $mod+g exec brave-browser --new-window "https://calendar.google.com"
+
+
+
 #screenshot specific area
-bindsym $mod+g exec grim -g "$(slurp)"  ~/Screenshots/screenshot-$(date +'%Y-%m-%d-%H%M%S').png
+bindsym $mod+s exec grim -g "$(slurp)"  ~/Screenshots/screenshot-$(date +'%Y-%m-%d-%H%M%S').png
 #take a screenshot of the whole screen
-bindsym $mod+Shift+g exec grim  ~/Screenshots/screenshot-$(date +'%Y-%m-%d-%H%M%S').png
+bindsym $mod+Shift+s exec grim  ~/Screenshots/screenshot-$(date +'%Y-%m-%d-%H%M%S').png
 
 # remove borders
 for_window [class=".*"] border none
