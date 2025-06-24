@@ -1,7 +1,3 @@
--- BEGIN CHATGPT GIVEN SETTINGS --------------------------------------------------------------------
-
--- vim.o.relativenumber = true
-
 -- Ensure packer is installed
 local ensure_packer = function()
   local fn = vim.fn
@@ -42,15 +38,27 @@ require('packer').startup(function()
     run = ':TSUpdate',
     config = function()
       require'nvim-treesitter.configs'.setup {
-        ensure_installed = { "rust", "c", "cpp", "cuda", "python" }, -- Added languages for syntax highlighting
+        ensure_installed = { "rust", "c", "cpp", "cuda", "python" },
         highlight = {
-          enable = true,              -- false will disable the whole extension
+          enable = true,
           additional_vim_regex_highlighting = false,
         },
       }
     end
   }
+
+  -- Indent-Blankline for indentation markers
+  use 'lukas-reineke/indent-blankline.nvim'
 end)
+
+-- Setup indent-blankline.nvim
+require("indent_blankline").setup {
+  char = '│',
+  show_trailing_blankline_indent = false,
+  use_treesitter = true,
+  show_current_context = true,
+  show_current_context_start = true,
+}
 
 -- Setup nvim-cmp
 local cmp = require'cmp'
@@ -58,7 +66,7 @@ local cmp = require'cmp'
 cmp.setup({
   snippet = {
     expand = function(args)
-      vim.fn["vsnip#anonymous"](args.body) -- For `vsnip` users.
+      vim.fn["vsnip#anonymous"](args.body)
     end,
   },
   mapping = {
@@ -68,11 +76,11 @@ cmp.setup({
     ['<C-f>'] = cmp.mapping.scroll_docs(4),
     ['<C-Space>'] = cmp.mapping.complete(),
     ['<C-e>'] = cmp.mapping.close(),
-    ['<CR>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+    ['<CR>'] = cmp.mapping.confirm({ select = true }),
   },
   sources = {
     { name = 'nvim_lsp' },
-    { name = 'vsnip' }, -- For vsnip users.
+    { name = 'vsnip' },
     { name = 'buffer' },
     { name = 'path' },
   }
@@ -81,18 +89,13 @@ cmp.setup({
 -- Setup lspconfig
 local nvim_lsp = require('lspconfig')
 
--- Use an on_attach function to only map the following keys after the language server attaches to the current buffer
 local on_attach = function(client, bufnr)
   local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
   local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
 
-  --Enable completion triggered by <c-x><c-o>
   buf_set_option('omnifunc', 'v:lua.vim.lsp.omnifunc')
 
-  -- Mappings
   local opts = { noremap=true, silent=true }
-
-  -- See `:help vim.lsp.*` for documentation on any of the below functions
   buf_set_keymap('n', 'gD', '<Cmd>lua vim.lsp.buf.declaration()<CR>', opts)
   buf_set_keymap('n', 'gd', '<Cmd>lua vim.lsp.buf.definition()<CR>', opts)
   buf_set_keymap('n', 'K', '<Cmd>lua vim.lsp.buf.hover()<CR>', opts)
@@ -112,25 +115,21 @@ local on_attach = function(client, bufnr)
 end
 
 -- Setup language servers
-local servers = { 'pyright', 'rust_analyzer', 'tsserver' }
+local servers = { 'pyright', 'rust_analyzer', 'ts_ls' }
 for _, lsp in ipairs(servers) do
   nvim_lsp[lsp].setup {
     on_attach = on_attach,
-    flags = {
-      debounce_text_changes = 150,
-    }
+    flags = { debounce_text_changes = 150 },
   }
 end
 
--------------------- END CHATGPT GIVEN SETTINGS ----------------------------------------------------------------------
-
--- THE FOLLOWING ARE MY OWN CUSTOM SETTINGS -----------------------------------------------------------------------------
-
+-- Custom Settings
 vim.o.number = true
+--vim.opt.relativenumber = true
 vim.opt.scrolloff = 999
 vim.opt.clipboard = "unnamedplus"
 
--- Set transparency for all background elements
+-- Set transparency for background elements
 vim.cmd [[
   hi Normal guibg=NONE ctermbg=NONE
   hi LineNr guibg=NONE ctermbg=NONE guifg=#FFFFFF

@@ -49,8 +49,8 @@ local function save_profiles(threshold)
 end
 
 time([[Luarocks path setup]], true)
-local package_path_str = "/home/simon/.cache/nvim/packer_hererocks/2.1.1703358377/share/lua/5.1/?.lua;/home/simon/.cache/nvim/packer_hererocks/2.1.1703358377/share/lua/5.1/?/init.lua;/home/simon/.cache/nvim/packer_hererocks/2.1.1703358377/lib/luarocks/rocks-5.1/?.lua;/home/simon/.cache/nvim/packer_hererocks/2.1.1703358377/lib/luarocks/rocks-5.1/?/init.lua"
-local install_cpath_pattern = "/home/simon/.cache/nvim/packer_hererocks/2.1.1703358377/lib/lua/5.1/?.so"
+local package_path_str = "/home/mrmeat/.cache/nvim/packer_hererocks/2.1.1703358377/share/lua/5.1/?.lua;/home/mrmeat/.cache/nvim/packer_hererocks/2.1.1703358377/share/lua/5.1/?/init.lua;/home/mrmeat/.cache/nvim/packer_hererocks/2.1.1703358377/lib/luarocks/rocks-5.1/?.lua;/home/mrmeat/.cache/nvim/packer_hererocks/2.1.1703358377/lib/luarocks/rocks-5.1/?/init.lua"
+local install_cpath_pattern = "/home/mrmeat/.cache/nvim/packer_hererocks/2.1.1703358377/lib/lua/5.1/?.so"
 if not string.find(package.path, package_path_str, 1, true) then
   package.path = package.path .. ';' .. package_path_str
 end
@@ -76,48 +76,53 @@ time([[Defining packer_plugins]], true)
 _G.packer_plugins = {
   ["cmp-buffer"] = {
     loaded = true,
-    path = "/home/simon/.local/share/nvim/site/pack/packer/start/cmp-buffer",
+    path = "/home/mrmeat/.local/share/nvim/site/pack/packer/start/cmp-buffer",
     url = "https://github.com/hrsh7th/cmp-buffer"
   },
   ["cmp-nvim-lsp"] = {
     loaded = true,
-    path = "/home/simon/.local/share/nvim/site/pack/packer/start/cmp-nvim-lsp",
+    path = "/home/mrmeat/.local/share/nvim/site/pack/packer/start/cmp-nvim-lsp",
     url = "https://github.com/hrsh7th/cmp-nvim-lsp"
   },
   ["cmp-path"] = {
     loaded = true,
-    path = "/home/simon/.local/share/nvim/site/pack/packer/start/cmp-path",
+    path = "/home/mrmeat/.local/share/nvim/site/pack/packer/start/cmp-path",
     url = "https://github.com/hrsh7th/cmp-path"
   },
   ["cmp-vsnip"] = {
     loaded = true,
-    path = "/home/simon/.local/share/nvim/site/pack/packer/start/cmp-vsnip",
+    path = "/home/mrmeat/.local/share/nvim/site/pack/packer/start/cmp-vsnip",
     url = "https://github.com/hrsh7th/cmp-vsnip"
+  },
+  ["indent-blankline.nvim"] = {
+    loaded = true,
+    path = "/home/mrmeat/.local/share/nvim/site/pack/packer/start/indent-blankline.nvim",
+    url = "https://github.com/lukas-reineke/indent-blankline.nvim"
   },
   ["nvim-cmp"] = {
     loaded = true,
-    path = "/home/simon/.local/share/nvim/site/pack/packer/start/nvim-cmp",
+    path = "/home/mrmeat/.local/share/nvim/site/pack/packer/start/nvim-cmp",
     url = "https://github.com/hrsh7th/nvim-cmp"
   },
   ["nvim-lspconfig"] = {
     loaded = true,
-    path = "/home/simon/.local/share/nvim/site/pack/packer/start/nvim-lspconfig",
+    path = "/home/mrmeat/.local/share/nvim/site/pack/packer/start/nvim-lspconfig",
     url = "https://github.com/neovim/nvim-lspconfig"
   },
   ["nvim-treesitter"] = {
     config = { "\27LJ\2\n¿\1\0\0\4\0\b\0\v6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\4\0005\3\3\0=\3\5\0025\3\6\0=\3\a\2B\0\2\1K\0\1\0\14highlight\1\0\2&additional_vim_regex_highlighting\1\venable\2\21ensure_installed\1\0\0\1\6\0\0\trust\6c\bcpp\tcuda\vpython\nsetup\28nvim-treesitter.configs\frequire\0" },
     loaded = true,
-    path = "/home/simon/.local/share/nvim/site/pack/packer/start/nvim-treesitter",
+    path = "/home/mrmeat/.local/share/nvim/site/pack/packer/start/nvim-treesitter",
     url = "https://github.com/nvim-treesitter/nvim-treesitter"
   },
   ["packer.nvim"] = {
     loaded = true,
-    path = "/home/simon/.local/share/nvim/site/pack/packer/start/packer.nvim",
+    path = "/home/mrmeat/.local/share/nvim/site/pack/packer/start/packer.nvim",
     url = "https://github.com/wbthomason/packer.nvim"
   },
   ["vim-vsnip"] = {
     loaded = true,
-    path = "/home/simon/.local/share/nvim/site/pack/packer/start/vim-vsnip",
+    path = "/home/mrmeat/.local/share/nvim/site/pack/packer/start/vim-vsnip",
     url = "https://github.com/hrsh7th/vim-vsnip"
   }
 }

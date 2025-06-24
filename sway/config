@@ -25,7 +25,7 @@ include /etc/sway/config-vars.d/*
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-output * bg ~/Downloads/wp3787981-hr-giger-wallpapers.jpg fill
+#output * bg ~/backgrounds/background.png fill
 #
 # Example configuration:
 #
@@ -235,10 +235,15 @@ bindsym $mod+g exec brave-browser --new-window "https://calendar.google.com"
 
 #screenshot specific area
 bindsym $mod+s exec grim -g "$(slurp)"  ~/Screenshots/screenshot-$(date +'%Y-%m-%d-%H%M%S').png
+
 #take a screenshot of the whole screen
 bindsym $mod+Shift+s exec grim  ~/Screenshots/screenshot-$(date +'%Y-%m-%d-%H%M%S').png
 
 # remove borders
 for_window [class=".*"] border none
+
+
+output * scale 1
+exec_always --no-startup-id swaybg -o '*' -i ~/backgrounds/background.png -m fill
 
 
